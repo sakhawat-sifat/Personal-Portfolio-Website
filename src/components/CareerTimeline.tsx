@@ -76,12 +76,12 @@ const CareerTimeline = () => {
     <section id="experience" className="py-12 sm:py-16 lg:py-20 bg-gray-50 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up">
-            Career Journey
+                <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Professional Journey
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
-            From content creation to technical project management - a journey of continuous growth and learning
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+            A timeline of my career progression and key achievements in technology project management
           </p>
         </div>
 
@@ -97,10 +97,9 @@ const CareerTimeline = () => {
             {timeline.map((item, index) => (
               <div
                 key={index}
-                className={`relative animate-fade-in-up ${
+                className={`relative ${
                   index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'
                 } sm:flex sm:items-start`}
-                style={{ animationDelay: `${index * 200 + 400}ms` }}
               >
                 {/* Timeline Dot - Responsive Design */}
                 <div className={`absolute w-5 h-5 sm:w-4 sm:h-4 left-5 sm:left-1/2 transform -translate-x-1/2 sm:transform sm:-translate-x-1/2 rounded-full border-3 sm:border-4 border-white shadow-lg sm:shadow-lg z-10 ${
@@ -108,7 +107,7 @@ const CareerTimeline = () => {
                   item.color === 'blue' ? 'bg-gradient-to-br from-blue-400 to-blue-600 sm:bg-blue-500' :
                   item.color === 'purple' ? 'bg-gradient-to-br from-purple-400 to-purple-600 sm:bg-purple-500' : 
                   'bg-gradient-to-br from-green-400 to-green-600 sm:bg-green-500'
-                } ${item.current ? 'animate-pulse-glow' : 'sm:animate-pulse-glow'}`}
+                }`}
                 style={{ top: '1.5rem' }}></div>
 
                 {/* Content Card - Different Layouts for Mobile vs Desktop */}
@@ -118,7 +117,7 @@ const CareerTimeline = () => {
                     : 'sm:ml-auto sm:pl-8'
                 }`}>
                   {/* Mobile Layout (< 640px) */}
-                  <div className="bg-white rounded-xl p-3 shadow-lg border border-gray-100 overflow-hidden sm:hidden hover:shadow-xl transition-all duration-300">
+                  <div className="bg-white rounded-xl p-3 shadow-lg border border-gray-100 overflow-hidden sm:hidden sm:hover:shadow-xl transition-all duration-300">
                     <div className="mb-3">
                       <div className="flex flex-col gap-2 mb-3">
                         <div className="flex-1 overflow-hidden">
@@ -254,7 +253,7 @@ const CareerTimeline = () => {
         <div className="text-center mt-12 sm:mt-16">
           {/* Mobile Summary */}
           <div className="sm:hidden mx-2">
-            <div className="bg-gradient-to-r from-white via-gray-50 to-white rounded-xl p-4 shadow-lg border border-gray-100 animate-fade-in-up animation-delay-1000 overflow-hidden">
+            <div className="bg-gradient-to-r from-white via-gray-50 to-white rounded-xl p-4 shadow-lg border border-gray-100 overflow-hidden">
               <div className="flex items-center justify-center mb-3">
                 <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
                   <TrendingUp size={20} className="text-white" />
@@ -272,7 +271,7 @@ const CareerTimeline = () => {
 
           {/* Desktop Summary - Original Design */}
           <div className="hidden sm:block">
-            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg animate-fade-in-up animation-delay-1000">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">3.5+ Years of Growth</h3>
               <p className="text-gray-700 max-w-3xl mx-auto text-sm sm:text-base">
                 My journey from content creation to technical project management has equipped me with a unique 

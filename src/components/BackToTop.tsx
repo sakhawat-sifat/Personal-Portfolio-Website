@@ -58,14 +58,14 @@ const BackToTop = () => {
     <>
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 w-10 h-10 sm:w-12 sm:h-12 bg-teal-600 hover:bg-teal-700 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center group ${
+        className={`fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 w-10 h-10 sm:w-12 sm:h-12 bg-teal-600 hover:bg-teal-700 text-white rounded-full shadow-lg sm:hover:shadow-xl transition-all duration-300 flex items-center justify-center group ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
         }`}
         aria-label="Back to top"
       >
         <ArrowUp 
           size={18} 
-          className="sm:w-5 sm:h-5 group-hover:animate-bounce" 
+          className="sm:w-5 sm:h-5 sm:group-hover:animate-bounce" 
         />
       </button>
     </>

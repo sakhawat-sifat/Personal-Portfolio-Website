@@ -57,7 +57,7 @@ const Header = () => {
                   e.preventDefault();
                   handleNavClick(item.href);
                 }}
-                className="text-gray-700 hover:text-teal-600 transition-colors duration-300 font-medium animate-fade-in-up"
+                className="text-gray-700 hover:text-teal-600 transition-colors duration-300 font-medium"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 {item.label}
@@ -79,7 +79,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200 animate-slide-down">
+          <div className="md:hidden bg-white/95 backdrop-blur-sm border-t border-gray-200">
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item, index) => (
                 <a
