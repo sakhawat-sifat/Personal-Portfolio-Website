@@ -34,7 +34,7 @@ const CareerTimeline = () => {
     },
     {
       title: "Creative Designer",
-      company: "TechZard",
+      company: "TecZard",
       location: "Dhaka, Bangladesh",
       period: "2020 - 2021",
       description: "Focused on visual design and user experience, developing skills in translating complex ideas into intuitive designs.",
@@ -73,8 +73,9 @@ const CareerTimeline = () => {
   };
 
   return (
-    <section id="experience" className="py-12 sm:py-16 lg:py-20 bg-gray-50">
+    <section id="experience" className="py-12 sm:py-16 lg:py-20 bg-gray-50 overflow-x-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up">
             Career Journey
@@ -84,32 +85,107 @@ const CareerTimeline = () => {
           </p>
         </div>
 
+        {/* Timeline Container with Responsive Layouts */}
         <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-4 sm:left-1/2 transform sm:-translate-x-1/2 w-0.5 h-full bg-gray-300"></div>
+          {/* Desktop Timeline Line - Original Design */}
+          <div className="hidden sm:block absolute left-1/2 transform -translate-x-1/2 w-0.5 h-full bg-gray-300"></div>
+          
+          {/* Mobile Timeline Line - Enhanced for Mobile Only */}
+          <div className="sm:hidden absolute left-5 w-0.5 h-full bg-gradient-to-b from-teal-400 via-blue-400 to-purple-400"></div>
 
           <div className="space-y-8 sm:space-y-12">
             {timeline.map((item, index) => (
               <div
                 key={index}
-                className={`relative flex items-start ${
+                className={`relative animate-fade-in-up ${
                   index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'
-                } animate-fade-in-up`}
+                } sm:flex sm:items-start`}
                 style={{ animationDelay: `${index * 200 + 400}ms` }}
               >
-                {/* Timeline Dot */}
-                <div className={`absolute left-4 sm:left-1/2 transform sm:-translate-x-1/2 w-4 h-4 rounded-full border-4 border-white shadow-lg ${
-                  item.color === 'teal' ? 'bg-teal-500' :
-                  item.color === 'blue' ? 'bg-blue-500' :
-                  item.color === 'purple' ? 'bg-purple-500' : 'bg-green-500'
-                } animate-pulse-glow`}></div>
+                {/* Timeline Dot - Responsive Design */}
+                <div className={`absolute w-5 h-5 sm:w-4 sm:h-4 left-5 sm:left-1/2 transform -translate-x-1/2 sm:transform sm:-translate-x-1/2 rounded-full border-3 sm:border-4 border-white shadow-lg sm:shadow-lg z-10 ${
+                  item.color === 'teal' ? 'bg-gradient-to-br from-teal-400 to-teal-600 sm:bg-teal-500' :
+                  item.color === 'blue' ? 'bg-gradient-to-br from-blue-400 to-blue-600 sm:bg-blue-500' :
+                  item.color === 'purple' ? 'bg-gradient-to-br from-purple-400 to-purple-600 sm:bg-purple-500' : 
+                  'bg-gradient-to-br from-green-400 to-green-600 sm:bg-green-500'
+                } ${item.current ? 'animate-pulse-glow' : 'sm:animate-pulse-glow'}`}
+                style={{ top: '1.5rem' }}></div>
 
-                {/* Content Card */}
-                <div className={`ml-12 sm:ml-0 sm:w-5/12 ${
-                  index % 2 === 0 ? 'sm:mr-auto sm:pr-8' : 'sm:ml-auto sm:pl-8'
+                {/* Content Card - Different Layouts for Mobile vs Desktop */}
+                <div className={`ml-8 sm:ml-0 sm:w-5/12 ${
+                  index % 2 === 0 
+                    ? 'sm:mr-auto sm:pr-8' 
+                    : 'sm:ml-auto sm:pl-8'
                 }`}>
-                  <div className="bg-white rounded-2xl p-6 shadow-lg hover-lift">
-                    {/* Header */}
+                  {/* Mobile Layout (< 640px) */}
+                  <div className="bg-white rounded-xl p-3 shadow-lg border border-gray-100 overflow-hidden sm:hidden hover:shadow-xl transition-all duration-300">
+                    <div className="mb-3">
+                      <div className="flex flex-col gap-2 mb-3">
+                        <div className="flex-1 overflow-hidden">
+                          <h3 className="text-base font-bold text-gray-900 mb-1 leading-tight break-words">
+                            {item.title}
+                          </h3>
+                          <div className="flex items-center text-gray-600 overflow-hidden">
+                            <Building size={12} className="mr-2 flex-shrink-0" />
+                            {item.companyUrl ? (
+                              <a 
+                                href={item.companyUrl} 
+                                target="_blank" 
+                                rel="noopener noreferrer"
+                                className="font-medium text-sm hover:text-teal-600 transition-colors duration-200 hover:underline truncate"
+                              >
+                                {item.company}
+                              </a>
+                            ) : (
+                              <span className="font-medium text-sm truncate">{item.company}</span>
+                            )}
+                          </div>
+                        </div>
+                        {item.current && (
+                          <div className={`px-2 py-1 rounded-full text-xs font-medium border flex-shrink-0 whitespace-nowrap ${getColorClasses(item.color)}`}>
+                            Current
+                          </div>
+                        )}
+                      </div>
+
+                      <div className="flex flex-col gap-1.5 text-xs text-gray-500">
+                        <div className="flex items-center overflow-hidden">
+                          <Calendar size={11} className="mr-1.5 flex-shrink-0" />
+                          <span className="truncate">{item.period}</span>
+                        </div>
+                        <div className="flex items-center overflow-hidden">
+                          <MapPin size={11} className="mr-1.5 flex-shrink-0" />
+                          <span className="truncate">{item.location}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <p className="text-gray-700 mb-3 text-sm leading-relaxed break-words">
+                      {item.description}
+                    </p>
+
+                    <div className="overflow-hidden">
+                      <h4 className="font-semibold text-gray-900 mb-2 text-sm flex items-center">
+                        <TrendingUp size={12} className="mr-2 text-teal-600 flex-shrink-0" />
+                        Key Achievements
+                      </h4>
+                      <ul className="space-y-1.5">
+                        {item.achievements.map((achievement, achievementIndex) => (
+                          <li key={achievementIndex} className="text-gray-600 text-xs flex items-start leading-relaxed">
+                            <span className={`w-1.5 h-1.5 rounded-full mt-1.5 mr-2.5 flex-shrink-0 ${
+                              item.color === 'teal' ? 'bg-teal-500' :
+                              item.color === 'blue' ? 'bg-blue-500' :
+                              item.color === 'purple' ? 'bg-purple-500' : 'bg-green-500'
+                            }`}></span>
+                            <span className="break-words overflow-hidden">{achievement}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* Desktop Layout (≥ 640px) - Original Design */}
+                  <div className="hidden sm:block bg-white rounded-2xl p-6 shadow-lg hover-lift">
                     <div className="flex flex-wrap items-start justify-between mb-4">
                       <div className="flex-1 min-w-0">
                         <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-1">
@@ -138,7 +214,6 @@ const CareerTimeline = () => {
                       )}
                     </div>
 
-                    {/* Meta Information */}
                     <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 mb-4 text-sm text-gray-500">
                       <div className="flex items-center">
                         <Calendar size={14} className="mr-2" />
@@ -150,12 +225,10 @@ const CareerTimeline = () => {
                       </div>
                     </div>
 
-                    {/* Description */}
                     <p className="text-gray-700 mb-4 text-sm sm:text-base leading-relaxed">
                       {item.description}
                     </p>
 
-                    {/* Achievements */}
                     <div>
                       <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base flex items-center">
                         <TrendingUp size={16} className="mr-2 text-teal-600" />
@@ -177,15 +250,36 @@ const CareerTimeline = () => {
           </div>
         </div>
 
-        {/* Summary */}
+        {/* Summary Section - Responsive Design */}
         <div className="text-center mt-12 sm:mt-16">
-          <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg animate-fade-in-up animation-delay-1000">
-            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">3.5+ Years of Growth</h3>
-            <p className="text-gray-700 max-w-3xl mx-auto text-sm sm:text-base">
-              My journey from content creation to technical project management has equipped me with a unique 
-              perspective on bridging business requirements with technical solutions. Each role has contributed 
-              to my comprehensive understanding of the product development lifecycle.
-            </p>
+          {/* Mobile Summary */}
+          <div className="sm:hidden mx-2">
+            <div className="bg-gradient-to-r from-white via-gray-50 to-white rounded-xl p-4 shadow-lg border border-gray-100 animate-fade-in-up animation-delay-1000 overflow-hidden">
+              <div className="flex items-center justify-center mb-3">
+                <div className="w-10 h-10 bg-gradient-to-br from-teal-500 to-blue-500 rounded-full flex items-center justify-center shadow-lg">
+                  <TrendingUp size={20} className="text-white" />
+                </div>
+              </div>
+              <h3 className="text-base font-bold text-gray-900 mb-3 break-words">
+                3.5+ Years of Professional Growth
+              </h3>
+              <p className="text-gray-700 text-xs leading-relaxed px-1 break-words">
+                My journey from content creation to technical project management has equipped me with a unique 
+                perspective on bridging business requirements with technical solutions.
+              </p>
+            </div>
+          </div>
+
+          {/* Desktop Summary - Original Design */}
+          <div className="hidden sm:block">
+            <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg animate-fade-in-up animation-delay-1000">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">3.5+ Years of Growth</h3>
+              <p className="text-gray-700 max-w-3xl mx-auto text-sm sm:text-base">
+                My journey from content creation to technical project management has equipped me with a unique 
+                perspective on bridging business requirements with technical solutions. Each role has contributed 
+                to my comprehensive understanding of the product development lifecycle.
+              </p>
+            </div>
           </div>
         </div>
       </div>
