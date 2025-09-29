@@ -11,8 +11,20 @@ import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 
 function App() {
+  // For localhost development, we can use the test site key or disable reCAPTCHA
+  const isDevelopment = import.meta.env.DEV;
+  const recaptchaKey = isDevelopment ? "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI" : "6Lfl59MrAAAAAFatfg_421cj3IMRcIFQjeMWG8dL";
+
   return (
-    <GoogleReCaptchaProvider reCaptchaKey="6Lfl59MrAAAAAFatfg_421cj3IMRcIFQjeMWG8dL">
+    <GoogleReCaptchaProvider 
+      reCaptchaKey={recaptchaKey}
+      scriptProps={{
+        async: false,
+        defer: true,
+        appendTo: "head",
+        nonce: undefined
+      }}
+    >
       <div className="min-h-screen bg-white">
         <Header />
         <main>
