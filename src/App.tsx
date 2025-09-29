@@ -6,7 +6,7 @@ import CareerTimeline from './components/CareerTimeline';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Education from './components/Education';
-import Contact from './components/Contact';
+// import Contact from './components/Contact'; // Temporarily disabled
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 
@@ -34,7 +34,7 @@ function App() {
           <Projects />
           <Skills />
           <Education />
-          <Contact />
+          {/* <Contact /> */}
         </main>
         <Footer />
         <BackToTop />
