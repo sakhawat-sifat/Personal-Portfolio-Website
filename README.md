@@ -220,10 +220,10 @@ This project is open source and available under the [MIT License](LICENSE).
 ## 🙋‍♂️ Contact
 
 **Sakhawat Hossain**
-- Portfolio: [Your Live Site]
-- LinkedIn: [Your LinkedIn]
-- GitHub: [Your GitHub]
-- Email: [Your Email]
+- Portfolio: [sakhawatsifat.me](https://sakhawatsifat.me/)
+- LinkedIn: [linkedin.com/in/hossain-sakhawat](https://www.linkedin.com/in/hossain-sakhawat)
+- GitHub: [github.com/sakhawat-sifat](https://github.com/sakhawat-sifat)
+- Email: sakhawat.hossain8088@gmail.com
 
 ---
 
