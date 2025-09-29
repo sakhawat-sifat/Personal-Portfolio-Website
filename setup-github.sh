@@ -1,26 +1,34 @@
 #!/bin/bash
 
-# GitHub Repository Setup Script
-# Replace YOUR_USERNAME with your actual GitHub username
+# GitHub Repository Setup Script for sakhawat-sifat
+# Repository: Personal-Portfolio-Website
 
-echo "🚀 Setting up GitHub repository connection..."
+echo "🚀 Setting up GitHub repository connection for sakhawat-sifat..."
 
-# Add remote origin (replace YOUR_USERNAME)
-echo "📡 Adding remote origin..."
-read -p "Enter your GitHub username: " username
-git remote add origin https://github.com/$username/Personal-Portfolio-Website.git
+# Repository details
+username="sakhawat-sifat"
+repo_name="Personal-Portfolio-Website"
+repo_url="https://github.com/$username/$repo_name.git"
 
-# Rename branch to main
-echo "🌿 Renaming branch to main..."
-git branch -M main
+echo "📡 Remote origin already configured for: $repo_url"
+echo "🌿 Branch renamed to main"
 
-# Push to GitHub
-echo "📤 Pushing to GitHub..."
-git push -u origin main
-
-echo "✅ Successfully pushed to GitHub!"
-echo "🌐 Your repository is now live at: https://github.com/$username/Personal-Portfolio-Website"
-echo "🎯 Next steps:"
-echo "   1. Visit your repository on GitHub"
-echo "   2. Set up GitHub Pages for free hosting"
-echo "   3. Add your repository URL to your portfolio"
+# Instructions for push
+echo ""
+echo "🎯 Next Steps:"
+echo "1. Create repository on GitHub:"
+echo "   - Go to https://github.com/new"
+echo "   - Repository name: $repo_name"
+echo "   - Keep it Public"
+echo "   - Don't initialize with README"
+echo ""
+echo "2. After creating the repository, run:"
+echo "   git push -u origin main"
+echo ""
+echo "3. Your repository will be live at:"
+echo "   https://github.com/$username/$repo_name"
+echo ""
+echo "4. Enable GitHub Pages for free hosting at:"
+echo "   https://$username.github.io/$repo_name/"
+echo ""
+echo "✅ Everything is ready for GitHub push!"
