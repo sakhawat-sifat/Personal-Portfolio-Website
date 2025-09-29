@@ -1,0 +1,21 @@
+{
+  "name": "Md Sakhawat Hossain | Portfolio Website",
+  "short_name": "Sakhawat's Portfolio",
+  "description": "Personal portfolio of Md Sakhawat Hossain - Project Manager & Business Analyst",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0d9488",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
