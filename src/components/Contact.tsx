@@ -17,10 +17,10 @@ const Contact = () => {
 
   const { executeRecaptcha } = useGoogleReCaptcha();
 
-  // EmailJS configuration
-  const serviceID = 'service_zn8g4tp';
-  const templateID = 'template_uk1va6i';
-  const publicKey = '-sasBOCdMpP7gnvr6';
+  // EmailJS configuration from environment variables
+  const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_zn8g4tp';
+  const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || 'template_uk1va6i';
+  const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || '-sasBOCdMpP7gnvr6';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -80,10 +80,17 @@ const Contact = () => {
     try {
       // Execute reCAPTCHA
       if (!executeRecaptcha) {
-        throw new Error('reCAPTCHA not available');
+        throw new Error('reCAPTCHA is not properly loaded. Please refresh the page and try again.');
       }
 
+      console.log('Executing reCAPTCHA...');
       const recaptchaToken = await executeRecaptcha('contact_form');
+      
+      if (!recaptchaToken) {
+        throw new Error('Failed to obtain reCAPTCHA token. Please try again.');
+      }
+
+      console.log('reCAPTCHA token obtained successfully');
       
       // Prepare email template parameters
       const templateParams = {
@@ -94,9 +101,11 @@ const Contact = () => {
         recaptcha_token: recaptchaToken
       };
 
+      console.log('Sending email via EmailJS...');
       // Send email using EmailJS
       const result = await emailjs.send(serviceID, templateID, templateParams, publicKey);
 
+      console.log('EmailJS Result:', result);
       if (result.status === 200) {
         setSubmitStatus('success');
         setFormData({
@@ -108,9 +117,18 @@ const Contact = () => {
         throw new Error('Failed to send message');
       }
     } catch (error) {
-      console.error('EmailJS Error:', error);
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
-      setErrorMessage('Failed to send message. Please try again or contact me directly at contact@sakhawatsifat.me');
+      
+      if (error instanceof Error) {
+        if (error.message.includes('reCAPTCHA')) {
+          setErrorMessage(error.message);
+        } else {
+          setErrorMessage('Failed to send message. Please try again or contact me directly at contact@sakhawatsifat.me');
+        }
+      } else {
+        setErrorMessage('Failed to send message. Please try again or contact me directly at contact@sakhawatsifat.me');
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -190,7 +208,24 @@ const Contact = () => {
 
           <ScrollAnimateSection>
             <div className="sm:animate-fade-in-up sm:animation-delay-400">
-              <form onSubmit={handleSubmit} className="space-y-6">
+              {submitStatus === 'success' ? (
+                // Success Message - Replaces the entire form
+                <div className="text-center py-16">
+                  <CheckCircle className="w-16 h-16 sm:w-20 sm:h-20 text-green-500 mx-auto mb-6 animate-scale-in" />
+                  <h4 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Message Sent!</h4>
+                  <p className="text-gray-600 text-lg sm:text-xl mb-8">Thank you for reaching out. I'll get back to you soon.</p>
+                  <button
+                    onClick={() => {
+                      setSubmitStatus('idle');
+                      setFormData({ name: '', email: '', message: '' });
+                    }}
+                    className="bg-teal-600 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-teal-700 hover:scale-105 hover:shadow-lg"
+                  >
+                    Send Another Message
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                     Name *
@@ -242,13 +277,6 @@ const Contact = () => {
                   />
                 </div>
 
-                {submitStatus === 'success' && (
-                  <div className="flex items-center space-x-2 p-4 bg-green-50 border border-green-200 rounded-lg">
-                    <CheckCircle className="w-5 h-5 text-green-600" />
-                    <p className="text-green-700">Message sent successfully! I'll get back to you soon.</p>
-                  </div>
-                )}
-
                 {submitStatus === 'error' && (
                   <div className="flex items-center space-x-2 p-4 bg-red-50 border border-red-200 rounded-lg">
                     <AlertCircle className="w-5 h-5 text-red-600" />
@@ -256,13 +284,13 @@ const Contact = () => {
                   </div>
                 )}
 
-                {/* reCAPTCHA Notice - Moved before button */}
-                <div className="space-y-2">
-                  <div className="flex items-center justify-center text-sm text-gray-500">
+                {/* reCAPTCHA Notice - Hidden with CSS */}
+                <div className="space-y-2 hidden">
+                  <div className="flex items-center text-sm text-gray-500">
                     <span className="mr-2">🔒</span>
                     <span>Protected by reCAPTCHA v3 - No checkboxes required!</span>
                   </div>
-                  <p className="text-xs text-gray-400 text-center">
+                  <p className="text-xs text-gray-400">
                     By submitting this form, you agree to Google's{' '}
                     <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
                       Privacy Policy
@@ -292,6 +320,7 @@ const Contact = () => {
                   )}
                 </button>
               </form>
+              )}
             </div>
           </ScrollAnimateSection>
         </div>

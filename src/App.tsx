@@ -14,11 +14,8 @@ function App() {
   // Contact component configuration
   const ENABLE_CONTACT = true; // Set to true when Contact component is ready
   
-  // reCAPTCHA configuration with environment variables
-  const isDevelopment = import.meta.env.DEV;
-  const recaptchaKey = isDevelopment 
-    ? import.meta.env.VITE_RECAPTCHA_SITE_KEY_DEV || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
-    : import.meta.env.VITE_RECAPTCHA_SITE_KEY_PROD || "6Lfl59MrAAAAAFatfg_421cj3IMRcIFQjeMWG8dL";
+  // reCAPTCHA configuration - use environment variable or fallback to test key
+  const recaptchaKey = import.meta.env.VITE_RECAPTCHA_SITE_KEY || "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Fallback to Google's test key
 
   const AppContent = () => (
     <div className="min-h-screen bg-white">
