@@ -6,13 +6,13 @@ import CareerTimeline from './components/CareerTimeline';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import Education from './components/Education';
-// import Contact from './components/Contact'; // Re-enable when Contact component is ready
+import Contact from './components/Contact';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 
 function App() {
   // Contact component configuration
-  const ENABLE_CONTACT = false; // Set to true when Contact component is ready
+  const ENABLE_CONTACT = true; // Set to true when Contact component is ready
   
   // reCAPTCHA configuration with environment variables
   const isDevelopment = import.meta.env.DEV;
@@ -30,7 +30,7 @@ function App() {
         <Projects />
         <Skills />
         <Education />
-        {/* {ENABLE_CONTACT && <Contact />} */}
+        {ENABLE_CONTACT && <Contact />}
       </main>
       <Footer />
       <BackToTop />
