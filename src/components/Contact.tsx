@@ -1,18 +1,26 @@
 import { useState } from 'react';
 import { Mail, MapPin, Linkedin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 import ScrollAnimateSection from './ScrollAnimateSection';
+import emailjs from 'emailjs-com';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
     message: ''
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
+  // EmailJS configuration
+  const serviceID = 'service_zn8g4tp';
+  const templateID = 'template_uk1va6i';
+  const publicKey = '-sasBOCdMpP7gnvr6';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -44,11 +52,6 @@ const Contact = () => {
       return false;
     }
     
-    if (!formData.subject.trim()) {
-      setErrorMessage('Subject is required');
-      return false;
-    }
-    
     if (!formData.message.trim()) {
       setErrorMessage('Message is required');
       return false;
@@ -75,89 +78,107 @@ const Contact = () => {
     setErrorMessage('');
 
     try {
-      // Simulate sending email for now
-      await new Promise(resolve => setTimeout(resolve, 2000));
+      // Execute reCAPTCHA
+      if (!executeRecaptcha) {
+        throw new Error('reCAPTCHA not available');
+      }
+
+      const recaptchaToken = await executeRecaptcha('contact_form');
       
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
+      // Prepare email template parameters
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: 'Sakhawat Hossain',
+        recaptcha_token: recaptchaToken
+      };
+
+      // Send email using EmailJS
+      const result = await emailjs.send(serviceID, templateID, templateParams, publicKey);
+
+      if (result.status === 200) {
+        setSubmitStatus('success');
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+      } else {
+        throw new Error('Failed to send message');
+      }
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error('EmailJS Error:', error);
       setSubmitStatus('error');
-      setErrorMessage('Failed to send message. Please try again or contact me directly.');
+      setErrorMessage('Failed to send message. Please try again or contact me directly at contact@sakhawatsifat.me');
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-slate-50 to-slate-100">
+    <section id="contact" className="py-20 bg-white">
       <div className="container mx-auto px-6">
         <ScrollAnimateSection>
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4 sm:animate-fade-in-up">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4 sm:animate-fade-in-up">
               Get In Touch
             </h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto sm:animate-fade-in-up sm:animation-delay-200">
-              Have a project in mind or want to discuss opportunities? I'd love to hear from you.
+              Ready to discuss your next project? I'd love to hear from you and explore how we can work together.
             </p>
           </div>
         </ScrollAnimateSection>
 
-        <div className="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           <ScrollAnimateSection>
             <div className="space-y-8 sm:animate-fade-in-up sm:animation-delay-300">
               <div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-6">
                   Let's Connect
                 </h3>
                 <p className="text-gray-600 mb-8">
-                  I'm always interested in hearing about new projects and opportunities. 
-                  Whether you have a question or just want to say hi, feel free to reach out!
+                  Whether you have a project in mind, need consultation on business analysis, or want to discuss project management opportunities, I'm here to help.
                 </p>
               </div>
 
               <div className="space-y-6">
-                <div className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                     <Mail className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-800">Email</h4>
+                    <h4 className="font-medium text-gray-900 text-lg">Email</h4>
                     <a 
-                      href="mailto:sakhawat.hossain.dev@gmail.com" 
-                      className="text-blue-600 hover:text-blue-700 transition-colors"
+                      href="mailto:contact@sakhawatsifat.me" 
+                      className="text-blue-600 hover:text-blue-700 transition-colors text-lg"
                     >
-                      sakhawat.hossain.dev@gmail.com
+                      contact@sakhawatsifat.me
                     </a>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                     <MapPin className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-800">Location</h4>
-                    <p className="text-gray-600">Dhaka, Bangladesh</p>
+                    <h4 className="font-medium text-gray-900 text-lg">Location</h4>
+                    <p className="text-gray-600 text-lg">Dhaka, Bangladesh</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4 p-4 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                     <Linkedin className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
-                    <h4 className="font-medium text-gray-800">LinkedIn</h4>
+                    <h4 className="font-medium text-gray-900 text-lg">LinkedIn</h4>
                     <a 
                       href="https://linkedin.com/in/sakhawat-hossain" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-700 transition-colors"
+                      className="text-blue-600 hover:text-blue-700 transition-colors text-lg"
                     >
                       Connect with me
                     </a>
@@ -168,57 +189,38 @@ const Contact = () => {
           </ScrollAnimateSection>
 
           <ScrollAnimateSection>
-            <div className="bg-white rounded-xl shadow-lg p-8 sm:animate-fade-in-up sm:animation-delay-400">
+            <div className="sm:animate-fade-in-up sm:animation-delay-400">
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Name *
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                      placeholder="Your name"
-                      disabled={isSubmitting}
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                      placeholder="your.email@example.com"
-                      disabled={isSubmitting}
-                    />
-                  </div>
-                </div>
-
                 <div>
-                  <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    Subject *
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Name *
                   </label>
                   <input
                     type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
+                    id="name"
+                    name="name"
+                    value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
-                    placeholder="What's this about?"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors bg-white"
+                    placeholder="Your full name"
+                    disabled={isSubmitting}
+                  />
+                </div>
+                
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors bg-white"
+                    placeholder="your.email@example.com"
                     disabled={isSubmitting}
                   />
                 </div>
@@ -234,8 +236,8 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
-                    placeholder="Tell me about your project or just say hello..."
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors resize-none bg-white"
+                    placeholder="Tell me about your project or how I can help you..."
                     disabled={isSubmitting}
                   />
                 </div>
@@ -257,7 +259,7 @@ const Contact = () => {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 disabled:from-gray-400 disabled:to-gray-500 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 group"
+                  className="w-full bg-teal-600 hover:bg-teal-700 disabled:bg-gray-400 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 group"
                 >
                   {isSubmitting ? (
                     <>
@@ -272,12 +274,23 @@ const Contact = () => {
                   )}
                 </button>
 
-                <p className="text-sm text-gray-500 text-center">
-                  For now, this form simulates sending. Contact me directly at{' '}
-                  <a href="mailto:sakhawat.hossain.dev@gmail.com" className="text-blue-600 hover:underline">
-                    sakhawat.hossain.dev@gmail.com
-                  </a>
-                </p>
+                {/* reCAPTCHA Notice */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-center text-sm text-gray-500">
+                    <span className="mr-2">🔒</span>
+                    <span>Protected by reCAPTCHA v3 - No checkboxes required!</span>
+                  </div>
+                  <p className="text-xs text-gray-400 text-center">
+                    By submitting this form, you agree to Google's{' '}
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
+                      Privacy Policy
+                    </a>{' '}
+                    and{' '}
+                    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
+                      Terms of Service
+                    </a>.
+                  </p>
+                </div>
               </form>
             </div>
           </ScrollAnimateSection>

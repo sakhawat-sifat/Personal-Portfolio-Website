@@ -72,7 +72,7 @@ const Hero = () => {
             <div className="relative animate-fade-in-up animation-delay-300">
               <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 sm:border-8 border-white shadow-2xl hover:scale-105 transition-transform duration-500">
                 <img
-                  src="/Sakhawat Hossain (Cropped).png"
+                  src="/user_image.png"
                   alt="Md Sakhawat Hossain"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                 />
