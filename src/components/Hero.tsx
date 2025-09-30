@@ -1,6 +1,18 @@
 import { Mail, MapPin, Linkedin } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 const Hero = () => {
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    // Delay animation start to prevent flickering
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const handleGetInTouch = () => {
     const contactSection = document.querySelector('#contact');
     if (contactSection) {
@@ -20,22 +32,22 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-center lg:text-left order-2 lg:order-1">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 animate-fade-in-up w-4/5 mx-auto lg:mx-0">
+            <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 sm:mb-6 w-4/5 mx-auto lg:mx-0 transition-all duration-800 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               Md Sakhawat
-              <span className="text-teal-600 block animate-fade-in-up animation-delay-200">Hossain</span>
+              <span className={`text-teal-600 block transition-all duration-800 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Hossain</span>
             </h1>
             
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-4 sm:mb-6 font-medium animate-fade-in-up animation-delay-400">
+            <p className={`text-lg sm:text-xl md:text-2xl text-gray-600 mb-4 sm:mb-6 font-medium transition-all duration-800 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               Bridging the gap between business and technology
             </p>
             
-            <p className="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed max-w-2xl animate-fade-in-up animation-delay-600">
+            <p className={`text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed max-w-2xl transition-all duration-800 delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               Technical Project Manager with 3.5+ years of experience driving SaaS, mobile app, 
               and automation projects from concept to delivery. Passionate about transforming 
               business requirements into successful digital solutions.
             </p>
             
-            <div className="flex justify-center lg:justify-start mb-6 sm:mb-8 animate-fade-in-up animation-delay-800">
+            <div className={`flex justify-center lg:justify-start mb-6 sm:mb-8 transition-all duration-800 delay-800 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <a
                 href="#contact"
                 onClick={(e) => {
@@ -49,7 +61,7 @@ const Hero = () => {
               </a>
             </div>
             
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 text-gray-600 justify-center lg:justify-start animate-fade-in-up animation-delay-1000">
+            <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 text-gray-600 justify-center lg:justify-start transition-all duration-800 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="flex items-center justify-center lg:justify-start">
                 <MapPin size={18} className="mr-2 text-teal-600" />
                 <span className="text-sm sm:text-base">Dhaka, Bangladesh</span>
@@ -69,7 +81,7 @@ const Hero = () => {
           </div>
           
           <div className="flex justify-center lg:justify-end order-1 lg:order-2">
-            <div className="relative animate-fade-in-up animation-delay-300">
+            <div className={`relative transition-all duration-800 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="w-64 h-64 sm:w-80 sm:h-80 rounded-full overflow-hidden border-4 sm:border-8 border-white shadow-2xl hover:scale-105 transition-transform duration-500">
                 <img
                   src="/user_image.png"

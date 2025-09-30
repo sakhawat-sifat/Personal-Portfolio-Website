@@ -284,8 +284,8 @@ const Contact = () => {
                   </div>
                 )}
 
-                {/* reCAPTCHA Notice - Hidden with CSS */}
-                <div className="space-y-2 hidden">
+                {/* reCAPTCHA Notice - Visible before button */}
+                <div className="space-y-2">
                   <div className="flex items-center text-sm text-gray-500">
                     <span className="mr-2">🔒</span>
                     <span>Protected by reCAPTCHA v3 - No checkboxes required!</span>

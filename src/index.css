@@ -483,3 +483,17 @@ html {
   }
 }
 
+/* Hide Google reCAPTCHA badge */
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  display: none !important;
+}
+
+/* Alternative approach to hide reCAPTCHA badge */
+iframe[src*="recaptcha"] {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  display: none !important;
+}
+
