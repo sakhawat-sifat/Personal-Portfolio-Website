@@ -144,14 +144,14 @@ const Contact = () => {
 
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <Mail className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <Mail className="w-6 h-6 text-teal-600" />
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900 text-lg">Email</h4>
                     <a 
                       href="mailto:contact@sakhawatsifat.me" 
-                      className="text-blue-600 hover:text-blue-700 transition-colors text-lg"
+                      className="text-teal-600 hover:text-teal-700 transition-colors text-lg"
                     >
                       contact@sakhawatsifat.me
                     </a>
@@ -159,18 +159,18 @@ const Contact = () => {
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <MapPin className="w-6 h-6 text-green-600" />
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <MapPin className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900 text-lg">Location</h4>
-                    <p className="text-gray-600 text-lg">Dhaka, Bangladesh</p>
+                    <p className="text-gray-600 text-lg">Mirpur, Dhaka, Bangladesh</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
-                    <Linkedin className="w-6 h-6 text-blue-600" />
+                  <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                    <Linkedin className="w-6 h-6 text-purple-600" />
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900 text-lg">LinkedIn</h4>
@@ -178,7 +178,7 @@ const Contact = () => {
                       href="https://linkedin.com/in/sakhawat-hossain" 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-700 transition-colors text-lg"
+                      className="text-purple-600 hover:text-purple-700 transition-colors text-lg"
                     >
                       Connect with me
                     </a>
@@ -256,6 +256,24 @@ const Contact = () => {
                   </div>
                 )}
 
+                {/* reCAPTCHA Notice - Moved before button */}
+                <div className="space-y-2">
+                  <div className="flex items-center justify-center text-sm text-gray-500">
+                    <span className="mr-2">🔒</span>
+                    <span>Protected by reCAPTCHA v3 - No checkboxes required!</span>
+                  </div>
+                  <p className="text-xs text-gray-400 text-center">
+                    By submitting this form, you agree to Google's{' '}
+                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
+                      Privacy Policy
+                    </a>{' '}
+                    and{' '}
+                    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
+                      Terms of Service
+                    </a>.
+                  </p>
+                </div>
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -273,24 +291,6 @@ const Contact = () => {
                     </>
                   )}
                 </button>
-
-                {/* reCAPTCHA Notice */}
-                <div className="space-y-2">
-                  <div className="flex items-center justify-center text-sm text-gray-500">
-                    <span className="mr-2">🔒</span>
-                    <span>Protected by reCAPTCHA v3 - No checkboxes required!</span>
-                  </div>
-                  <p className="text-xs text-gray-400 text-center">
-                    By submitting this form, you agree to Google's{' '}
-                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
-                      Privacy Policy
-                    </a>{' '}
-                    and{' '}
-                    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer" className="text-teal-600 hover:underline">
-                      Terms of Service
-                    </a>.
-                  </p>
-                </div>
               </form>
             </div>
           </ScrollAnimateSection>
