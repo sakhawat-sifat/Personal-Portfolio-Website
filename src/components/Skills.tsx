@@ -114,12 +114,12 @@ const Skills = () => {
   return (
     <section id="skills" className="py-12 sm:py-16 lg:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up">
-            Core Skills
+                <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            Skills & Expertise
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
-            A comprehensive skill set spanning project management, technical expertise, and business analysis
+          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+            A comprehensive toolkit spanning project management, technical analysis, and strategic planning
           </p>
         </div>
 
@@ -129,8 +129,7 @@ const Skills = () => {
             return (
               <div
                 key={category.title}
-                className="bg-white rounded-2xl p-6 shadow-lg hover-lift animate-fade-in-up border border-gray-100"
-                style={{ animationDelay: `${index * 100 + 400}ms` }}
+                className="bg-white rounded-2xl p-6 shadow-lg hover-lift border border-gray-100"
               >
                 {/* Header */}
                 <div className="flex items-center mb-6">
@@ -166,7 +165,7 @@ const Skills = () => {
 
         {/* Additional Skills Section */}
         <div className="mt-12 sm:mt-16">
-          <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-6 sm:p-8 animate-fade-in-up animation-delay-1000">
+          <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-6 sm:p-8">
             <div className="text-center mb-8">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Additional Expertise</h3>
               <p className="text-gray-700 max-w-3xl mx-auto text-sm sm:text-base">

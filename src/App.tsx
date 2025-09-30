@@ -1,14 +1,18 @@
+import { lazy, Suspense } from 'react';
 import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 import Header from './components/Header';
 import Hero from './components/Hero';
-import About from './components/About';
-import CareerTimeline from './components/CareerTimeline';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Education from './components/Education';
-// import Contact from './components/Contact'; // Re-enable when Contact component is ready
-import Footer from './components/Footer';
-import BackToTop from './components/BackToTop';
+import { LoadingFallback } from './utils/lazyLoading';
+
+// Lazy load components that are not immediately visible
+const About = lazy(() => import('./components/About'));
+const CareerTimeline = lazy(() => import('./components/CareerTimeline'));
+const Projects = lazy(() => import('./components/Projects'));
+const Skills = lazy(() => import('./components/Skills'));
+const Education = lazy(() => import('./components/Education'));
+const Footer = lazy(() => import('./components/Footer'));
+const BackToTop = lazy(() => import('./components/BackToTop'));
+// const Contact = lazy(() => import('./components/Contact')); // Re-enable when ready
 
 function App() {
   // Contact component configuration
@@ -25,15 +29,29 @@ function App() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <CareerTimeline />
-        <Projects />
-        <Skills />
-        <Education />
-        {/* {ENABLE_CONTACT && <Contact />} */}
+        <Suspense fallback={<LoadingFallback height="400px" />}>
+          <About />
+        </Suspense>
+        <Suspense fallback={<LoadingFallback height="600px" />}>
+          <CareerTimeline />
+        </Suspense>
+        <Suspense fallback={<LoadingFallback height="500px" />}>
+          <Projects />
+        </Suspense>
+        <Suspense fallback={<LoadingFallback height="400px" />}>
+          <Skills />
+        </Suspense>
+        <Suspense fallback={<LoadingFallback height="300px" />}>
+          <Education />
+        </Suspense>
+        {/* {ENABLE_CONTACT && <Suspense fallback={<LoadingFallback />}><Contact /></Suspense>} */}
       </main>
-      <Footer />
-      <BackToTop />
+      <Suspense fallback={<div className="h-20" />}>
+        <Footer />
+      </Suspense>
+      <Suspense fallback={null}>
+        <BackToTop />
+      </Suspense>
     </div>
   );
 

@@ -6,11 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:analyze": "vite build --mode analyze",
     "lint": "eslint .",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist",
     "stop": "fuser -k 5173/tcp 2>/dev/null || echo 'No process running on port 5173'",
-    "restart": "npm run stop && npm run dev"
+    "restart": "npm run stop && npm run dev",
+    "optimize": "npm run build && npm run preview"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.57.4",
@@ -36,6 +38,7 @@
     "netlify-cli": "^23.7.3",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
+    "terser": "^5.44.0",
     "typescript": "^5.5.3",
     "typescript-eslint": "^8.3.0",
     "vercel": "^48.1.5",
