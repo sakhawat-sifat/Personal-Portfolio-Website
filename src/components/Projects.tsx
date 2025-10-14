@@ -82,7 +82,7 @@ const Projects = () => {
                     rel="noopener noreferrer"
                     className="flex items-center gap-3 flex-1 group"
                   >
-                    <div className="rounded-xl flex items-center justify-center overflow-hidden p-2 transition-transform duration-200 group-hover:scale-105" style={{ width: '220px', height: '80px' }}>
+                    <div className="rounded-xl flex items-center justify-center overflow-hidden p-2 transition-transform duration-200 group-hover:scale-105" style={{ width: '180px', height: '65px' }}>
                       <img 
                         src={project.logo} 
                         alt={`${project.title} logo`}
