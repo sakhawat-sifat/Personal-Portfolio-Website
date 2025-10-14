@@ -239,7 +239,7 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors bg-white text-gray-900 placeholder:text-gray-400"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
                     placeholder="Your full name"
                     disabled={isSubmitting}
                   />
@@ -256,7 +256,7 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors bg-white text-gray-900 placeholder:text-gray-400"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-colors bg-white text-gray-900 placeholder:text-gray-400"
                     placeholder="your.email@example.com"
                     disabled={isSubmitting}
                   />
@@ -273,7 +273,7 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     rows={4}
-                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors resize-none bg-white text-gray-900 placeholder:text-gray-400"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-teal-500 focus:outline-none transition-colors resize-none bg-white text-gray-900 placeholder:text-gray-400"
                     placeholder="Tell me about your project or how I can help you..."
                     disabled={isSubmitting}
                   />
