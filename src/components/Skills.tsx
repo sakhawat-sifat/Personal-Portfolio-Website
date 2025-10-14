@@ -118,7 +118,7 @@ const Skills = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Skills & Expertise
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-500 max-w-3xl mx-auto">
             A comprehensive toolkit spanning project management, technical analysis, and strategic planning
           </p>
         </div>
@@ -152,7 +152,7 @@ const Skills = () => {
                         size={16} 
                         className="text-gray-400 group-hover:text-teal-500 mr-3 mt-0.5 flex-shrink-0 transition-colors duration-200" 
                       />
-                      <span className="text-gray-700 text-sm sm:text-base group-hover:text-gray-900 transition-colors duration-200">
+                      <span className="text-gray-500 text-sm sm:text-base group-hover:text-gray-900 transition-colors duration-200">
                         {skill}
                       </span>
                     </div>
@@ -168,7 +168,7 @@ const Skills = () => {
           <div className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-2xl p-6 sm:p-8">
             <div className="text-center mb-8">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Additional Expertise</h3>
-              <p className="text-gray-700 max-w-3xl mx-auto text-sm sm:text-base">
+              <p className="text-gray-500 max-w-3xl mx-auto text-sm sm:text-base">
                 Beyond core skills, I bring specialized knowledge in various domains
               </p>
             </div>
@@ -179,7 +179,7 @@ const Skills = () => {
                   <Database className="w-8 h-8 text-teal-600" />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">SaaS Expertise</h4>
-                <p className="text-gray-600 text-xs sm:text-sm">
+                <p className="text-gray-500 text-xs sm:text-sm">
                   Deep understanding of SaaS product lifecycle, subscription models, and scalability challenges
                 </p>
               </div>
@@ -189,7 +189,7 @@ const Skills = () => {
                   <Users className="w-8 h-8 text-blue-600" />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Team Leadership</h4>
-                <p className="text-gray-600 text-xs sm:text-sm">
+                <p className="text-gray-500 text-xs sm:text-sm">
                   Experience leading cross-functional teams and managing stakeholder relationships
                 </p>
               </div>
@@ -199,7 +199,7 @@ const Skills = () => {
                   <Lightbulb className="w-8 h-8 text-purple-600" />
                 </div>
                 <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Innovation</h4>
-                <p className="text-gray-600 text-xs sm:text-sm">
+                <p className="text-gray-500 text-xs sm:text-sm">
                   Passionate about emerging technologies and innovative solutions for business challenges
                 </p>
               </div>

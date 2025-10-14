@@ -6,8 +6,8 @@ const CareerTimeline = () => {
       title: "Technical Project Manager",
       company: "JoulesLabs",
       companyUrl: "https://jouleslabs.com",
-      location: "Mirpur DOHS, Dhaka, Bangladesh",
-      period: "February 2022 - Present",
+      location: "Mirpur DOHS, Dhaka",
+      period: "Feb 2022 - Present",
       description: "Leading cross-functional teams in delivering SaaS solutions, mobile applications, and automation projects. Managing product roadmaps, stakeholder communications, and ensuring successful project delivery.",
       achievements: [
         "Scaled Crowdfundly user base from 2K to 14K+ users",
@@ -22,7 +22,7 @@ const CareerTimeline = () => {
       company: "Quantanite Bangladesh",
       companyUrl: "https://quantanite.com",
       location: "Dhaka, Bangladesh",
-      period: "2021 - 2022",
+      period: "Nov 2020 - Dec 2021",
       description: "Worked on business analysis and project coordination, gaining valuable experience in requirement gathering and stakeholder management.",
       achievements: [
         "Improved project delivery timelines by 25%",
@@ -36,7 +36,7 @@ const CareerTimeline = () => {
       title: "Creative Designer",
       company: "TecZard",
       location: "Dhaka, Bangladesh",
-      period: "2020 - 2021",
+      period: "Nov 2019 - Nov 2020",
       description: "Focused on visual design and user experience, developing skills in translating complex ideas into intuitive designs.",
       achievements: [
         "Created design systems for multiple projects",
@@ -50,7 +50,7 @@ const CareerTimeline = () => {
       title: "Content Writer",
       company: "MarketDeal24",
       location: "Dhaka, Bangladesh",
-      period: "2019 - 2020",
+      period: "Jun 2019 - Aug 2019",
       description: "Started my professional journey in content creation, developing strong communication and analytical skills.",
       achievements: [
         "Produced high-quality content for various industries",
@@ -80,7 +80,7 @@ const CareerTimeline = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Professional Journey
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-500 max-w-3xl mx-auto">
             A timeline of my career progression and key achievements in technology project management
           </p>
         </div>
@@ -159,7 +159,7 @@ const CareerTimeline = () => {
                       </div>
                     </div>
 
-                    <p className="text-gray-700 mb-3 text-sm leading-relaxed break-words">
+                    <p className="text-gray-500 mb-3 text-sm leading-relaxed break-words">
                       {item.description}
                     </p>
 
@@ -170,7 +170,7 @@ const CareerTimeline = () => {
                       </h4>
                       <ul className="space-y-1.5">
                         {item.achievements.map((achievement, achievementIndex) => (
-                          <li key={achievementIndex} className="text-gray-600 text-xs flex items-start leading-relaxed">
+                          <li key={achievementIndex} className="text-gray-500 text-xs flex items-start leading-relaxed">
                             <span className={`w-1.5 h-1.5 rounded-full mt-1.5 mr-2.5 flex-shrink-0 ${
                               item.color === 'teal' ? 'bg-teal-500' :
                               item.color === 'blue' ? 'bg-blue-500' :
@@ -224,7 +224,7 @@ const CareerTimeline = () => {
                       </div>
                     </div>
 
-                    <p className="text-gray-700 mb-4 text-sm sm:text-base leading-relaxed">
+                    <p className="text-gray-500 mb-4 text-sm sm:text-base leading-relaxed">
                       {item.description}
                     </p>
 
@@ -235,7 +235,7 @@ const CareerTimeline = () => {
                       </h4>
                       <ul className="space-y-1">
                         {item.achievements.map((achievement, achievementIndex) => (
-                          <li key={achievementIndex} className="text-gray-600 text-sm flex items-start">
+                          <li key={achievementIndex} className="text-gray-500 text-sm flex items-start">
                             <span className="w-1.5 h-1.5 bg-teal-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                             {achievement}
                           </li>
@@ -262,7 +262,7 @@ const CareerTimeline = () => {
               <h3 className="text-base font-bold text-gray-900 mb-3 break-words">
                 3.5+ Years of Professional Growth
               </h3>
-              <p className="text-gray-700 text-xs leading-relaxed px-1 break-words">
+              <p className="text-gray-500 text-xs leading-relaxed px-1 break-words">
                 My journey from content creation to technical project management has equipped me with a unique 
                 perspective on bridging business requirements with technical solutions.
               </p>
@@ -273,7 +273,7 @@ const CareerTimeline = () => {
           <div className="hidden sm:block">
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg">
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">3.5+ Years of Growth</h3>
-              <p className="text-gray-700 max-w-3xl mx-auto text-sm sm:text-base">
+              <p className="text-gray-500 max-w-3xl mx-auto text-sm sm:text-base">
                 My journey from content creation to technical project management has equipped me with a unique 
                 perspective on bridging business requirements with technical solutions. Each role has contributed 
                 to my comprehensive understanding of the product development lifecycle.

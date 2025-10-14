@@ -50,11 +50,16 @@ const Header = () => {
           <div className="flex-shrink-0">
             <a 
               href="#" 
-              className={`text-xl sm:text-2xl font-bold text-gray-900 hover:text-teal-600 transition-all duration-300 ${
+              className={`flex items-center gap-2 text-xl sm:text-2xl font-bold text-gray-900 hover:text-teal-600 transition-all duration-300 ${
                 isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'
               }`}
             >
-              Sakhawat Hossain
+              <img 
+                src="/favicon.png" 
+                alt="Logo" 
+                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full object-cover"
+              />
+              <span>Sakhawat Hossain</span>
             </a>
           </div>
 

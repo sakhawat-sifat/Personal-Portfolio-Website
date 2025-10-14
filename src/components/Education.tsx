@@ -8,7 +8,7 @@ const Education = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up">
             Education
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
+          <p className="text-lg sm:text-xl text-gray-500 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
             Academic foundation in Computer Science & Engineering with focus on technology and business applications
           </p>
         </div>
@@ -56,7 +56,7 @@ const Education = () => {
                 </div>
 
                 {/* Description */}
-                <p className="text-gray-700 mb-6 text-sm sm:text-base leading-relaxed">
+                <p className="text-gray-500 mb-6 text-sm sm:text-base leading-relaxed">
                   Comprehensive study of computer science fundamentals, software engineering principles, 
                   and technology applications. The program provided a strong foundation in programming, 
                   system design, and analytical thinking that directly supports my current role in 
@@ -99,7 +99,7 @@ const Education = () => {
                 </div>
                 <h3 className="text-lg font-bold text-gray-900">Continuous Learning</h3>
               </div>
-              <p className="text-gray-700 text-sm sm:text-base">
+              <p className="text-gray-500 text-sm sm:text-base">
                 Actively pursuing knowledge in emerging technologies, project management methodologies, 
                 and business analysis techniques through online courses and industry certifications.
               </p>
@@ -113,7 +113,7 @@ const Education = () => {
                 </div>
                 <h3 className="text-lg font-bold text-gray-900">Professional Growth</h3>
               </div>
-              <p className="text-gray-700 text-sm sm:text-base">
+              <p className="text-gray-500 text-sm sm:text-base">
                 Leveraging academic foundation to excel in practical applications, combining theoretical 
                 knowledge with hands-on experience in real-world project management scenarios.
               </p>
@@ -126,7 +126,7 @@ const Education = () => {
               <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
                 Education Meets Experience
               </h3>
-              <p className="text-gray-700 max-w-3xl mx-auto text-sm sm:text-base">
+              <p className="text-gray-500 max-w-3xl mx-auto text-sm sm:text-base">
                 My computer science background provides the technical foundation that enables me to 
                 effectively communicate with development teams, understand system architectures, and 
                 make informed decisions in technical project management roles.

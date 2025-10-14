@@ -37,11 +37,11 @@ const Hero = () => {
               <span className={`text-teal-600 block transition-all duration-800 delay-200 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>Hossain</span>
             </h1>
             
-            <p className={`text-lg sm:text-xl md:text-2xl text-gray-600 mb-4 sm:mb-6 font-medium transition-all duration-800 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <p className={`text-lg sm:text-xl md:text-2xl text-gray-500 mb-4 sm:mb-6 font-medium transition-all duration-800 delay-400 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               Bridging the gap between business and technology
             </p>
             
-            <p className={`text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed max-w-2xl transition-all duration-800 delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <p className={`text-base sm:text-lg text-gray-500 mb-6 sm:mb-8 leading-relaxed max-w-2xl transition-all duration-800 delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               Technical Project Manager with 3.5+ years of experience driving SaaS, mobile app, 
               and automation projects from concept to delivery. Passionate about transforming 
               business requirements into successful digital solutions.
@@ -61,7 +61,7 @@ const Hero = () => {
               </a>
             </div>
             
-            <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 text-gray-600 justify-center lg:justify-start transition-all duration-800 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <div className={`flex flex-col sm:flex-row gap-3 sm:gap-4 text-gray-500 justify-center lg:justify-start transition-all duration-800 delay-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
               <div className="flex items-center justify-center lg:justify-start">
                 <MapPin size={18} className="mr-2 text-teal-600" />
                 <span className="text-sm sm:text-base">Dhaka, Bangladesh</span>

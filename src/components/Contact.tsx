@@ -142,7 +142,7 @@ const Contact = () => {
             <h2 className="text-4xl font-bold text-gray-900 mb-4 sm:animate-fade-in-up">
               Get In Touch
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto sm:animate-fade-in-up sm:animation-delay-200">
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto sm:animate-fade-in-up sm:animation-delay-200">
               Ready to discuss your next project? I'd love to hear from you and explore how we can work together.
             </p>
           </div>
@@ -155,7 +155,7 @@ const Contact = () => {
                 <h3 className="text-2xl font-semibold text-gray-900 mb-6">
                   Let's Connect
                 </h3>
-                <p className="text-gray-600 mb-8">
+                <p className="text-gray-500 mb-8">
                   Whether you have a project in mind, need consultation on business analysis, or want to discuss project management opportunities, I'm here to help.
                 </p>
               </div>
@@ -182,7 +182,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-medium text-gray-900 text-lg">Location</h4>
-                    <p className="text-gray-600 text-lg">Mirpur, Dhaka, Bangladesh</p>
+                    <p className="text-gray-500 text-lg">Mirpur, Dhaka, Bangladesh</p>
                   </div>
                 </div>
 
@@ -210,10 +210,10 @@ const Contact = () => {
             <div className="sm:animate-fade-in-up sm:animation-delay-400">
               {submitStatus === 'success' ? (
                 // Success Message - Replaces the entire form
-                <div className="text-center py-16">
+                <div className="bg-gray-50 rounded-2xl shadow-xl p-6 sm:p-8 text-center">
                   <CheckCircle className="w-16 h-16 sm:w-20 sm:h-20 text-green-500 mx-auto mb-6 animate-scale-in" />
                   <h4 className="text-2xl sm:text-3xl font-semibold text-gray-900 mb-4">Message Sent!</h4>
-                  <p className="text-gray-600 text-lg sm:text-xl mb-8">Thank you for reaching out. I'll get back to you soon.</p>
+                  <p className="text-gray-500 text-lg sm:text-xl mb-8">Thank you for reaching out. I'll get back to you soon.</p>
                   <button
                     onClick={() => {
                       setSubmitStatus('idle');
@@ -225,9 +225,11 @@ const Contact = () => {
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="bg-gray-50 rounded-2xl shadow-xl p-6 sm:p-8">
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-4">Send a Message</h3>
+                  <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
                     Name *
                   </label>
                   <input
@@ -237,14 +239,14 @@ const Contact = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors bg-white"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors bg-white"
                     placeholder="Your full name"
                     disabled={isSubmitting}
                   />
                 </div>
                 
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                     Email *
                   </label>
                   <input
@@ -254,14 +256,14 @@ const Contact = () => {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors bg-white"
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors bg-white"
                     placeholder="your.email@example.com"
                     disabled={isSubmitting}
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                     Message *
                   </label>
                   <textarea
@@ -270,8 +272,8 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors resize-none bg-white"
+                    rows={4}
+                    className="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-colors resize-none bg-white"
                     placeholder="Tell me about your project or how I can help you..."
                     disabled={isSubmitting}
                   />
@@ -319,7 +321,8 @@ const Contact = () => {
                     </>
                   )}
                 </button>
-              </form>
+                </form>
+                </div>
               )}
             </div>
           </ScrollAnimateSection>

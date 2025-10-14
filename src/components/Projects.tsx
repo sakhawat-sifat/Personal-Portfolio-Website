@@ -4,45 +4,51 @@ const Projects = () => {
   const projects = [
     {
       title: "Crowdfundly",
-      description: "Led the end-to-end planning, execution, and product transformation of a SaaS-based content monetization platform, scaling user base from 2,000 to 14,000+ in 2 years.",
+      description: "Led the end-to-end planning, execution, and product transformation of a SaaS-based content monetization platform, scaling user base from 2,000 to 16,000+ in 2 years.",
       link: "https://crowdfundly.com/",
+      logo: "/project_logo/crowdfundly_logo.svg",
       gradient: "from-purple-500 to-pink-500",
-      stats: { users: "14K+", growth: "600%" }
+      stats: { users: "16K+ users", growth: "600% user growth" }
     },
     {
       title: "DeedSign",
       description: "Spearheaded the development and delivery of a secure SaaS digital document e-signing platform, ensuring alignment with client requirements and smooth mobile and web integration.",
       link: "https://deedsign.com/",
+      logo: "/project_logo/deedsign_logo.svg",
       gradient: "from-blue-500 to-cyan-500",
-      stats: { security: "Bank-level", integration: "Multi-platform" }
+      stats: { security: "Secure signing", integration: "Multi-platform (Web & Mobile)" }
     },
     {
       title: "Wi Platform",
       description: "Managed the multi-module digital commerce ecosystem, including Wi Account, Wi Bazaar, and Wi Pay. Led the integration of payment gateways and cross-border shipping workflows.",
       link: "https://wibazaar.com/",
+      logo: "/project_logo/wibazaar_logo.svg",
       gradient: "from-green-500 to-teal-500",
-      stats: { modules: "3+", payments: "Multi-gateway" }
+      stats: { modules: "3+ Modules", integration: "Multi-platform (Web & Mobile)" }
     },
     {
       title: "Flowfy",
       description: "Directed the full lifecycle of a no-code workflow automation app for Shopify, aligning product features with market demand and successfully managing development sprints.",
       link: "https://apps.shopify.com/store-flow-workflow-automation",
+      logo: "/project_logo/flowfy_logo.svg",
       gradient: "from-orange-500 to-red-500",
-      stats: { platform: "Shopify", automation: "No-code" }
+      stats: { platform: "Shopify", automation: "No-code Integration" }
     },
     {
       title: "ReviewX",
       description: "Oversaw the cloud migration of a high-performing WordPress plugin, coordinating dual-track development for cloud and legacy versions, ensuring seamless user experiences.",
       link: "https://reviewx.io/",
+      logo: "/project_logo/reviewx_logo.svg",
       gradient: "from-indigo-500 to-purple-500",
-      stats: { migration: "Cloud", platform: "WordPress" }
+      stats: { migration: "Cloud Based", platform: "WordPress Plugin" }
     },
     {
       title: "Winblink",
       description: "Led the development of a greenfield ad network platform, conducting in-depth research and building a solid foundation for ad delivery mechanisms and monetization models.",
       link: "https://winblink.com/",
+      logo: "/project_logo/winblink_logo.svg",
       gradient: "from-pink-500 to-rose-500",
-      stats: { type: "Ad Network", stage: "Greenfield" }
+      stats: { type: "Ad Network Platform", stage: "DSP, SSP, Admin" }
     }
   ];
 
@@ -53,7 +59,7 @@ const Projects = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 animate-fade-in-up">
             Key Projects
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
+          <p className="text-lg sm:text-xl text-gray-500 max-w-3xl mx-auto animate-fade-in-up animation-delay-200">
             A showcase of successful SaaS, mobile, and automation projects that have driven real business impact
           </p>
         </div>
@@ -69,19 +75,41 @@ const Projects = () => {
               <div className={`h-2 bg-gradient-to-r ${project.gradient}`}></div>
               
               <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900">{project.title}</h3>
+                <div className="flex items-start justify-between mb-6">
                   <a
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-teal-600 transition-colors duration-200 hover:scale-110 transform"
+                    className="flex items-center gap-3 flex-1 group"
+                  >
+                    <div className="rounded-xl flex items-center justify-center overflow-hidden p-2 transition-transform duration-200 group-hover:scale-105" style={{ width: '220px', height: '80px' }}>
+                      <img 
+                        src={project.logo} 
+                        alt={`${project.title} logo`}
+                        className="w-full h-full object-contain"
+                        onError={(e) => {
+                          // Fallback to first letter if image fails to load
+                          const target = e.target as HTMLImageElement;
+                          target.style.display = 'none';
+                          const fallback = target.parentElement;
+                          if (fallback) {
+                            fallback.innerHTML = `<span class="text-3xl sm:text-4xl font-bold text-gray-700">${project.title[0]}</span>`;
+                          }
+                        }}
+                      />
+                    </div>
+                  </a>
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-gray-400 hover:text-teal-600 transition-colors duration-200 hover:scale-110 transform flex-shrink-0"
                   >
                     <ExternalLink size={20} />
                   </a>
                 </div>
 
-                <p className="text-gray-600 mb-6 text-sm sm:text-base leading-relaxed">
+                <p className="text-gray-500 mb-6 text-sm sm:text-base leading-relaxed">
                   {project.description}
                 </p>
 
@@ -116,7 +144,7 @@ const Projects = () => {
         <div className="text-center mt-12 sm:mt-16">
           <div className="bg-gradient-to-r from-teal-50 to-blue-50 rounded-2xl p-6 sm:p-8 animate-fade-in-up animation-delay-1000">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Ready to Start Your Next Project?</h3>
-            <p className="text-gray-700 mb-6 max-w-2xl mx-auto text-sm sm:text-base">
+            <p className="text-gray-500 mb-6 max-w-2xl mx-auto text-sm sm:text-base">
               Let's discuss how I can help transform your business requirements into successful digital solutions.
             </p>
             <a

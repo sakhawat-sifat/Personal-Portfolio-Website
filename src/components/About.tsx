@@ -9,7 +9,7 @@ const About = () => {
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             About Me
           </h2>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-gray-500 max-w-3xl mx-auto">
             Passionate about transforming complex business requirements into successful digital solutions
           </p>
         </ScrollAnimateSection>
@@ -17,7 +17,7 @@ const About = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <ScrollAnimateSection animation="fade-left" delay={200}>
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">My Journey</h3>
-            <div className="space-y-4 text-gray-700 leading-relaxed text-sm sm:text-base">
+            <div className="space-y-4 text-gray-500 leading-relaxed text-sm sm:text-base">
               <p>
                 My career began in content creation, where I developed a keen eye for detail and 
                 storytelling. This foundation led me to creative design, where I learned to visualize 
@@ -46,7 +46,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Problem Solving</h4>
-                  <p className="text-gray-600 text-sm sm:text-base">
+                  <p className="text-gray-500 text-sm sm:text-base">
                     I thrive on breaking down complex challenges into manageable solutions that 
                     deliver real business value.
                   </p>
@@ -59,7 +59,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Team Collaboration</h4>
-                  <p className="text-gray-600 text-sm sm:text-base">
+                  <p className="text-gray-500 text-sm sm:text-base">
                     Building bridges between technical teams and stakeholders to ensure everyone 
                     is aligned and moving toward common goals.
                   </p>
@@ -72,7 +72,7 @@ const About = () => {
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-900 mb-2 text-sm sm:text-base">Continuous Learning</h4>
-                  <p className="text-gray-600 text-sm sm:text-base">
+                  <p className="text-gray-500 text-sm sm:text-base">
                     Staying current with emerging technologies and methodologies to deliver 
                     innovative solutions that drive business growth.
                   </p>
@@ -85,7 +85,7 @@ const About = () => {
         <ScrollAnimateSection delay={600} className="mt-12 sm:mt-16 text-center">
           <div className="bg-gradient-to-r from-teal-50 to-blue-50 rounded-2xl p-6 sm:p-8 hover-lift">
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Beyond Work</h3>
-            <p className="text-gray-700 max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
+            <p className="text-gray-500 max-w-3xl mx-auto leading-relaxed text-sm sm:text-base">
               When I'm not managing projects or analyzing business requirements, you'll find me 
               exploring new places, trying different cuisines, and seeking out experiences that 
               broaden my perspective. I believe that diverse experiences fuel creativity and 
