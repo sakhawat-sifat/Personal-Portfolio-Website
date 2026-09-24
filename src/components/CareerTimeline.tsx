@@ -3,19 +3,35 @@ import { Calendar, MapPin, Building, TrendingUp } from 'lucide-react';
 const CareerTimeline = () => {
   const timeline = [
     {
+      title: "Business Analyst",
+      company: "Pipeline Inc.",
+      companyUrl: "https://www.ppln.co/",
+      location: "Mohakhali DOHS, Dhaka",
+      period: "Oct 2025 - Present",
+      description: "Working closely with stakeholders and the development team to translate customer needs, business priorities, and industry demands into actionable product features. From sprint planning to delivery, I help shape solutions through discovery, validation, and cross-functional collaboration with Japan, design, QA, and DevOps teams.",
+      achievements: [
+        "Partner with stakeholders and engineering teams to define and prioritize features",
+        "Bridge business requirements with sprint planning and delivery execution",
+        "Collaborate with Japan, design, QA, and DevOps teams to ensure smooth delivery",
+        "Support R&D, idea validation, and feature improvement initiatives"
+      ],
+      color: "teal",
+      current: true
+    },
+    {
       title: "Technical Project Manager",
       company: "JoulesLabs",
       companyUrl: "https://jouleslabs.com",
       location: "Mirpur DOHS, Dhaka",
-      period: "Feb 2022 - Present",
-      description: "Leading cross-functional teams in delivering SaaS solutions, mobile applications, and automation projects. Managing product roadmaps, stakeholder communications, and ensuring successful project delivery.",
+      period: "Feb 2022 - Oct 2022",
+      description: "Delivered cross-functional project work with a focus on business analysis, requirement gathering, and stakeholder coordination to support successful product execution and timely delivery.",
       achievements: [
-        "Scaled Crowdfundly user base from 2K to 14K+ users",
-        "Successfully delivered 6+ major SaaS projects",
-        "Implemented Agile methodologies across development teams"
+        "Managed stakeholder communication and project coordination across teams",
+        "Gathered and translated requirements into execution-ready plans",
+        "Supported successful delivery of product and project initiatives"
       ],
-      color: "teal",
-      current: true
+      color: "blue",
+      current: false
     },
     {
       title: "Associate",
@@ -29,7 +45,7 @@ const CareerTimeline = () => {
         "Coordinated between technical and business teams",
         "Developed comprehensive project documentation"
       ],
-      color: "blue",
+      color: "purple",
       current: false
     },
     {
@@ -260,11 +276,11 @@ const CareerTimeline = () => {
                 </div>
               </div>
               <h3 className="text-base font-bold text-gray-900 mb-3 break-words">
-                3.5+ Years of Professional Growth
+                4+ Years of Business & Project Growth
               </h3>
               <p className="text-gray-500 text-xs leading-relaxed px-1 break-words">
-                My journey from content creation to technical project management has equipped me with a unique 
-                perspective on bridging business requirements with technical solutions.
+                My journey across project coordination, technical leadership, and business analysis has shaped a
+                balanced perspective on turning business needs into clear strategy, collaborative delivery, and measurable outcomes.
               </p>
             </div>
           </div>
@@ -272,11 +288,11 @@ const CareerTimeline = () => {
           {/* Desktop Summary - Original Design */}
           <div className="hidden sm:block">
             <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-lg">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">3.5+ Years of Growth</h3>
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">4+ Years of Growth</h3>
               <p className="text-gray-500 max-w-3xl mx-auto text-sm sm:text-base">
-                My journey from content creation to technical project management has equipped me with a unique 
-                perspective on bridging business requirements with technical solutions. Each role has contributed 
-                to my comprehensive understanding of the product development lifecycle.
+                My experience spans project management, stakeholder coordination, and business analysis, giving me a
+                practical understanding of how to connect business goals, technical execution, and delivery outcomes.
+                Each role has strengthened my ability to drive clear communication and meaningful product progress.
               </p>
             </div>
           </div>
