@@ -19,20 +19,19 @@ const About = () => {
             <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">My Journey</h3>
             <div className="space-y-4 text-gray-500 leading-relaxed text-sm sm:text-base">
               <p>
-                My career began in content creation, where I developed a keen eye for detail and 
-                storytelling. This foundation led me to creative design, where I learned to visualize 
-                complex ideas and communicate them effectively.
+                My career began in content creation, where I developed a strong foundation in detail, 
+                communication, and structured thinking. That foundation naturally extended into creative 
+                design and later into project coordination, where I learned how ideas become execution.
               </p>
               <p>
-                The transition to project management felt natural as I discovered my passion for 
-                bridging the gap between business requirements and technical implementation. Today, 
-                I specialize in managing SaaS projects, mobile applications, and automation solutions 
-                that drive real business value.
+                Over time, I evolved from supporting delivery to shaping it. Today, I work at the intersection 
+                of business analysis and project management, helping teams translate requirements, customer 
+                needs, and industry demands into clear priorities and actionable delivery plans.
               </p>
               <p>
-                What excites me most is the opportunity to work at the intersection of technology 
-                and business strategy, ensuring that every project not only meets technical 
-                specifications but also delivers meaningful outcomes for users and stakeholders.
+                What excites me most is working across stakeholders, technology, and delivery teams to ensure 
+                each initiative is not only technically sound but also strategically valuable and aligned with 
+                real business outcomes.
               </p>
             </div>
           </ScrollAnimateSection>

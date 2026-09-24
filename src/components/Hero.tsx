@@ -42,9 +42,9 @@ const Hero = () => {
             </p>
             
             <p className={`text-base sm:text-lg text-gray-500 mb-6 sm:mb-8 leading-relaxed max-w-2xl transition-all duration-800 delay-600 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-              Technical Project Manager with 3.5+ years of experience driving SaaS, mobile app, 
-              and automation projects from concept to delivery. Passionate about transforming 
-              business requirements into successful digital solutions.
+              Business Analyst and Project Manager with 4+ years of experience translating business
+              needs into product decisions, delivery plans, and cross-functional execution. I work at the
+              intersection of strategy, stakeholder alignment, and implementation to drive better outcomes.
             </p>
             
             <div className={`flex justify-center lg:justify-start mb-6 sm:mb-8 transition-all duration-800 delay-800 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>

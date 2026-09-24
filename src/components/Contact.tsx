@@ -124,10 +124,10 @@ const Contact = () => {
         if (error.message.includes('reCAPTCHA')) {
           setErrorMessage(error.message);
         } else {
-          setErrorMessage('Failed to send message. Please try again or contact me directly at contact@sakhawatsifat.me');
+          setErrorMessage('Failed to send message. Please try again or contact me directly at sakhawat.hossain8088@gmail.com');
         }
       } else {
-        setErrorMessage('Failed to send message. Please try again or contact me directly at contact@sakhawatsifat.me');
+        setErrorMessage('Failed to send message. Please try again or contact me directly at sakhawat.hossain8088@gmail.com');
       }
     } finally {
       setIsSubmitting(false);
@@ -168,10 +168,10 @@ const Contact = () => {
                   <div>
                     <h4 className="font-medium text-gray-900 text-lg">Email</h4>
                     <a 
-                      href="mailto:contact@sakhawatsifat.me" 
+                      href="mailto:sakhawat.hossain8088@gmail.com" 
                       className="text-teal-600 hover:text-teal-700 transition-colors text-lg"
                     >
-                      contact@sakhawatsifat.me
+                      sakhawat.hossain8088@gmail.com
                     </a>
                   </div>
                 </div>
